@@ -15,4 +15,17 @@ jobs:
       run: |
         echo "repository_dispatch triggered"
     - run: echo ${{ github.event.client_payload.sha }}
-    - run: echo ${{ github.event.client_payload }}
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
+    - name: print whole context
+      env:
+        GITHUB_CONTEXT:  ${{ toJson(github) }} 
+        VARS_CONTEXT:  ${{ toJson(vars) }} 
+      run: |
+        echo "GITHUB_CONTEXT is $GITHUB_CONTEXT"
+        echo "VARS_CONTEXT is $VARS_CONTEXT"
+        echo "event is  ${{ GITHUB_CONTEXT.event }} "
+
