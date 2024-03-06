@@ -27,5 +27,4 @@ jobs:
       run: |
         echo "GITHUB_CONTEXT is $GITHUB_CONTEXT"
         echo "VARS_CONTEXT is $VARS_CONTEXT"
-        echo "event is  ${{ GITHUB_CONTEXT.event }} "
 
